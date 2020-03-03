@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--File description: <workshop>
+Suppose to customize button into a gradient color scheme; however project
+doesn't load properly in the emulator when this xml file is called - so it's ignored
+for now until I figure out how to get the emulator to run this file.
+-->
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
     <gradient android:startColor="#0073EE" android:endColor="#0073EE" android:type="radial"/>
     <corners android:radius="5dp" />

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- File description: Stores the interface/design for the app's home screen.-->
+<!-- Includes an image: chat_icon_5.png, a few texts, and two buttons: Login & Register -->
+<!-- Linked to HomeScreen.java file -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,7 +9,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_homescreen"
-    tools:context="com.example.softwareengrproject.MainActivity">
+    tools:context="com.example.softwareengrproject.HomeScreen">
 
     <ImageView
         android:id="@+id/imageView"
@@ -69,6 +72,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.429" />
 
+    <!-- "Login" button opens activity_loginscreen which should be the login screen interface -->
     <Button
         android:id="@+id/button"
         android:layout_width="236dp"
