@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+//Ashley's comment
 public class MainActivity extends AppCompatActivity {
     private Button button;
 
@@ -22,9 +23,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //comment Kelsey
     public void openActivity2() {
         Intent intent = new Intent(this, Activity2.class);
-        startActivity(intent);
+        startActivity(intent); //comment Virginia
     }
 }
