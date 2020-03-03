@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- File description: Stores the interface/design for the app's home screen.-->
+<!-- Includes an image: chat_icon_5.png, a few texts, and two buttons: Login & Register -->
+<!-- Linked to HomeScreen.java file -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_homescreen"
+    tools:context="com.example.softwareengrproject.HomeScreen">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="130dp"
+        android:layout_height="214dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginLeft="148dp"
+        android:layout_marginTop="60dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/chat_icon_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="313dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="350dp"
+        android:text="Assignment Buddy"
+        android:textColor="#8B949E"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="181dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginTop="800dp"
+        android:layout_marginBottom="335dp"
+        android:text="eLearning Hub"
+        android:textColor="#D00010"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="156dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginLeft="136dp"
+        android:layout_marginTop="800dp"
+        android:layout_marginBottom="350dp"
+        android:text="Campus Network"
+        android:textColor="#606060"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.429" />
+
+    <!-- "Login" button opens activity_loginscreen which should be the login screen interface -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="236dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:text="Login"
+        android:background="#0073EE"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.391" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="236dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:text="Register"
+        android:background="#0073EE"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.564" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

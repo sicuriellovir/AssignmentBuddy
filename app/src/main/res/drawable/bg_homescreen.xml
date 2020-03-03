@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- File description:
+xml file for home screen - changes background color.
+Written for gradient background but for now it just makes back ground white.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="@color/white"
+        android:endColor="@color/white"
+        android:angle="-135" />
+</shape>
