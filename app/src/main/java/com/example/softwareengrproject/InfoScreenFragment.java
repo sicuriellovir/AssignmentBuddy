@@ -4,6 +4,9 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteCursor;
+
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
