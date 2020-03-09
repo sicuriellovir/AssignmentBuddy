@@ -4,7 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ScreenRegister">
+    android:background="@drawable/bg_screen_register"
+    tools:context="com.example.softwareengrproject.RegisterScreen">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="176dp"
+        android:layout_height="184dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginTop="72dp"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/registerscreenpic"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="52dp"
+        android:text="@string/please_select_one"
+        android:textColor="#8B949E"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/buttonStudent"
@@ -34,30 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonStudent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="47dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="52dp"
-        android:text="@string/please_select_one"
-        android:textColor="#8B949E"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="176dp"
-        android:layout_height="184dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginLeft="116dp"
-        android:layout_marginTop="72dp"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/registerscreenpic"
-        android:contentDescription="@string/todo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
