@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ScreenRegister"></activity>
+        <provider
+            android:name=".AcctDB"
+            android:authorities="com.example.softwareengrproject.provider"
+            android:enabled="true"
+            android:exported="true"></provider>
+
         <activity android:name=".LoginScreen" />
         <activity android:name=".HomeScreen">
             <intent-filter>
