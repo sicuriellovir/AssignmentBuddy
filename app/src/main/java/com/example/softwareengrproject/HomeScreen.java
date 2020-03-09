@@ -9,24 +9,40 @@ import android.widget.Button;
 //File Description: Creates activity page for the home screen page
 //Design/interface of this activity - stored in: activity_homescreenscreen.xml
 public class HomeScreen extends AppCompatActivity {
-    private Button button;
+    //private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
 
-        button = (Button) findViewById(R.id.button);
+        Button button = findViewById(R.id.button);
+        Button button2 = findViewById((R.id.button2));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivity2();
             }
         });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity3();
+            }
+        });
+
+
     }
+
 
     public void openActivity2() {
         Intent intent = new Intent(this, LoginScreen.class);
+        startActivity(intent);
+    }
+
+    public void openActivity3() {
+        Intent intent = new Intent(this, ScreenRegister.class);
         startActivity(intent);
     }
 }
