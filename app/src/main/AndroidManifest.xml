@@ -9,12 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <provider
-            android:name=".AcctDB"
-            android:authorities="com.example.softwareengrproject.provider"
-            android:enabled="true"
-            android:exported="true"></provider>
-
         <activity android:name=".LoginScreen" />
         <activity android:name=".HomeScreen">
             <intent-filter>
@@ -23,6 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name=".AcctDB"
+            android:authorities="com.example.softwareengrproject.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.example.softwareengrproject.provider.ACCESS_PERMISSION"
+            android:readPermission="android.permission.READ_EXTERNAL_STORAGE"
+            android:writePermission="android.permission.WRITE_EXTERNAL_STORAGE"/>
     </application>
-
 </manifest>
