@@ -22,7 +22,7 @@ Here you can create the Login page.
         android:layout_marginTop="116dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/assignment_buddy"
+        android:text="Assignment Buddy"
         android:textSize="30sp" />
 
     <EditText
