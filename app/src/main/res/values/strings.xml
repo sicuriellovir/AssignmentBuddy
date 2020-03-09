@@ -4,4 +4,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fragment_header">AssignmentBuddy</string>
+
+    <string name="CourseButton">Courses</string>
+    <string name="TodoButton">To-Do</string>
+    <string name="MessengerButton">Messenger</string>
+    <string name="SettingsButton">Settings</string>
 </resources>
