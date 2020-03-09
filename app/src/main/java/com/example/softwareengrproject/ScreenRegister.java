@@ -1,17 +1,16 @@
 package com.example.softwareengrproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ScreenRegister extends AppCompatActivity {
+public class ScreenRegister extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_register);
 
@@ -19,7 +18,8 @@ public class ScreenRegister extends AppCompatActivity {
         Button button2 = findViewById((R.id.button2));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 openActivity4();
             }
         });
@@ -30,17 +30,18 @@ public class ScreenRegister extends AppCompatActivity {
                 openActivity5();
             }
         });
+
+
     }
 
     public void openActivity4()
     {
-//        Intent intent = new Intent(this, .class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
     }
 
-    public void openActivity5()
-    {
-//        Intent intent = new Intent(this, .class);
-//        startActivity(intent);
+    public void openActivity5() {
+        Intent intent = new Intent(this, LoginScreen.class);
+        startActivity(intent);
     }
 }

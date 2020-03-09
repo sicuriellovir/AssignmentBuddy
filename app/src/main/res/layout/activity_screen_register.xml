@@ -14,7 +14,7 @@
         android:layout_marginLeft="84dp"
         android:layout_marginTop="52dp"
         android:background="#0073EE"
-        android:text="Student"
+        android:text="@string/student"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginLeft="84dp"
         android:layout_marginTop="44dp"
         android:background="#0073EE"
-        android:text="Professor"
+        android:text="@string/professor"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="52dp"
-        android:text="Please, select one"
+        android:text="@string/please_select_one"
         android:textColor="#8B949E"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -58,5 +58,6 @@
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/registerscreenpic" />
+        app:srcCompat="@drawable/registerscreenpic"
+        android:contentDescription="@string/todo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
