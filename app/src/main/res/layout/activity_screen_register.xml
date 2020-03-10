@@ -17,8 +17,7 @@
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/registerscreenpic"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@drawable/registerscreenpic"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -27,7 +26,8 @@
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="52dp"
-        android:text="@string/please_select_one"
+        android:text="Please select one"
+
         android:textColor="#8B949E"
         android:textSize="35sp"
         android:textStyle="bold"
@@ -42,7 +42,7 @@
         android:layout_marginLeft="84dp"
         android:layout_marginTop="52dp"
         android:background="#0073EE"
-        android:text="@string/student"
+        android:text="student"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         android:layout_marginLeft="84dp"
         android:layout_marginTop="44dp"
         android:background="#0073EE"
-        android:text="@string/professor"
+        android:text="professor"
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"

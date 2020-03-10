@@ -20,15 +20,15 @@ public class RegisterScreen extends AppCompatActivity
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent int3 = new Intent(RegisterScreen.this, LoginScreen.class);
+//                Intent int3 = new Intent(RegisterScreen.this, InfoScreenFragment.class);
 //                startActivity(int3);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent int4 = new Intent(RegisterScreen.this, LoginScreen.class);
-//                startActivity(int4);
+                Intent int4 = new Intent(RegisterScreen.this, LoginScreen.class);
+                startActivity(int4);
             }
         });
     }
