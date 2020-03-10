@@ -27,8 +27,8 @@ public class RegisterScreen extends AppCompatActivity
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent int4 = new Intent(RegisterScreen.this, LoginScreen.class);
-                startActivity(int4);
+//                Intent int4 = new Intent(RegisterScreen.this, LoginScreen.class);
+//                startActivity(int4);
             }
         });
     }
