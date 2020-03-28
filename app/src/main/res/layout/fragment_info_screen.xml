@@ -61,7 +61,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="145dp"
         android:layout_marginLeft="145dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="145dp"
         android:layout_marginRight="145dp"
         android:hint="Last Name"
@@ -71,12 +71,27 @@
         app:layout_constraintTop_toBottomOf="@+id/first_name_edit_text" />
 
     <EditText
+        android:id="@+id/username_edit_text"
+        android:layout_width="201dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginRight="145dp"
+        android:hint="User ID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/last_name_edit_text" />
+
+
+    <EditText
         android:id="@+id/password_edit_text"
         android:layout_width="201dp"
         android:layout_height="40dp"
         android:layout_marginStart="145dp"
         android:layout_marginLeft="145dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="145dp"
         android:layout_marginRight="145dp"
         android:hint="Password"
@@ -100,14 +115,15 @@
         android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="162dp"
-        android:layout_marginEnd="74dp"
-        android:layout_marginRight="74dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
         android:layout_marginBottom="30dp"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_edit_text" />
+        app:layout_constraintTop_toBottomOf="@+id/password_edit_text"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/create_account_text"

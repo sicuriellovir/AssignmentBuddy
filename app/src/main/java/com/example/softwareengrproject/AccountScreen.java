@@ -17,6 +17,15 @@ public class AccountScreen extends AppCompatActivity {
         Button buttonTodo = findViewById(R.id.button3);
         Button buttonMessenger = findViewById(R.id.button5);
         Button buttonSettings = findViewById(R.id.button6);
+        String user = "";
+
+        // To get the username entered from previous activity
+        Bundle bundle = getIntent().getExtras();
+        if( bundle != null )
+        {
+            user = bundle.getString("username");
+        }
+
     }
 
     /*

@@ -10,10 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginScreen" />
+        <activity android:name=".ScreenRegister"/>
+        <activity android:name=".AccountScreen"/>
+        <activity android:name=".InfoScreenFragment"/>
         <activity android:name=".HomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -25,5 +27,6 @@
             android:permission="com.example.softwareengrproject.provider.ACCESS_PERMISSION"
             android:readPermission="android.permission.READ_EXTERNAL_STORAGE"
             android:writePermission="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     </application>
 </manifest>
