@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 public class AcctDB extends ContentProvider{
     public static final int DBVERSION = 1;
     public final static String DBNAME = "AccountDB";
-    public final static String TABLE_NAMESTABLE = "AccountTable";
+    public final static String TABLE_ACCTTABLE = "AccountTable";
     public final static Uri CONTENT_URI = Uri.parse("content://com.example.softwareengrproject.provider");
     public final static String COLUMN_FNAME ="fName";
     public final static String COLUMN_LNAME ="lName";
@@ -25,7 +25,7 @@ public class AcctDB extends ContentProvider{
     public final static String COLUMN_PASSWD ="userPasswd";
     // String to create the database
     private static final String SQL_CREATE_MAIN =
-            "CREATE TABLE " + TABLE_NAMESTABLE +"(" +"_ID STRING PRIMARY KEY, " + COLUMN_ID + " TEXT,"+ COLUMN_FNAME + " TEXT,"
+            "CREATE TABLE " + TABLE_ACCTTABLE +"(" +"_ID INTEGER PRIMARY KEY, " + COLUMN_ID + " TEXT,"+ COLUMN_FNAME + " TEXT,"
                     + COLUMN_LNAME + " TEXT," + COLUMN_PASSWD + " TEXT," + COLUMN_ACCT_TYPE +" TEXT)";
 
     protected static final class AcctDBHelper extends SQLiteOpenHelper
@@ -74,7 +74,7 @@ public class AcctDB extends ContentProvider{
 
         long id = mOpenHelper
                 .getWritableDatabase()
-                .insert(TABLE_NAMESTABLE, null, values);
+                .insert(TABLE_ACCTTABLE, null, values);
 
         return Uri.withAppendedPath(CONTENT_URI, "" + id);
     }
@@ -103,7 +103,7 @@ public class AcctDB extends ContentProvider{
 
         return mOpenHelper
                 .getWritableDatabase()
-                .update(TABLE_NAMESTABLE, values, selection, selectionArgs);
+                .update(TABLE_ACCTTABLE, values, selection, selectionArgs);
     }
     @Nullable
     @Override

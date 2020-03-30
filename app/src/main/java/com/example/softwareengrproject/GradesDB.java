@@ -12,17 +12,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 /* Database to store account information */
-public class CoursesDB extends ContentProvider{
+public class GradesDB extends ContentProvider{
     public static final int DBVERSION = 1;
     public final static String DBNAME = "CoursesDB";
-    public final static String TABLE_COURSESTABLE = "CoursesTable";
+    public final static String TABLE_GRADESTABLE = "CoursesTable";
     public final static Uri CONTENT_URI = Uri.parse("content://com.example.softwareengrproject.provider");
     public final static String COLUMN_ID="userID";
-    public final static String COLUMN_COURSES = "courseList";
+    public final static String COLUMN_COURSEID = "courseID";
+    public final static String COLUMN_ASSIGNMENT = "assignmentName";
+    public final static String COLUMN_GRADE = "assignmentGrade";
 
     // String to create the database
     private static final String SQL_CREATE_MAIN =
-            "CREATE TABLE " + TABLE_COURSESTABLE +"(" +"_ID INTEGER PRIMARY KEY, " + COLUMN_ID + " TEXT,"+ COLUMN_COURSES;
+            "CREATE TABLE " + TABLE_GRADESTABLE +"(" +"_ID INTEGER PRIMARY KEY, " + COLUMN_ID + " TEXT,"+ COLUMN_COURSEID + " TEXT," + COLUMN_ASSIGNMENT + " TEXT," + COLUMN_GRADE + " INTEGER)";
 
     protected static final class AcctDBHelper extends SQLiteOpenHelper
     {
@@ -51,7 +53,9 @@ public class CoursesDB extends ContentProvider{
     @Override
     public Uri insert(Uri uri, ContentValues values) {
         String userid = values.getAsString(COLUMN_ID).trim();
-        String coursesString = values.getAsString(COLUMN_COURSES).trim();
+        String coursesString = values.getAsString(COLUMN_COURSEID).trim();
+        String assigmentString = values.getAsString(COLUMN_ASSIGNMENT).trim();
+        int grade = values.getAsInteger(COLUMN_GRADE);
 
         //Check for invalid values
         if ( userid.equals("") )
@@ -59,9 +63,15 @@ public class CoursesDB extends ContentProvider{
         if ( coursesString.equals("") )
             return null;
 
+        if ( assigmentString.equals(""))
+            return null;
+
+        if ( grade < 0)
+            return null;
+
         long id = mOpenHelper
                 .getWritableDatabase()
-                .insert(TABLE_COURSESTABLE, null, values);
+                .insert(TABLE_GRADESTABLE, null, values);
 
         return Uri.withAppendedPath(CONTENT_URI, "" + id);
     }
@@ -71,8 +81,9 @@ public class CoursesDB extends ContentProvider{
                       String[] selectionArgs) {
 
         String userid = values.getAsString(COLUMN_ID).trim();
-        String coursesString = values.getAsString(COLUMN_COURSES).trim();
-
+        String coursesString = values.getAsString(COLUMN_COURSEID).trim();
+        String assigmentString = values.getAsString(COLUMN_ASSIGNMENT).trim();
+        String gradesString = values.getAsString(COLUMN_GRADE).trim();
 
         //Check for invalid values
         if ( userid.equals("") )
@@ -80,9 +91,15 @@ public class CoursesDB extends ContentProvider{
         if ( coursesString.equals("") )
             return -1;
 
+        if ( assigmentString.equals(""))
+            return -1;
+
+        if ( gradesString.equals(""))
+            return -1;
+
         return mOpenHelper
                 .getWritableDatabase()
-                .update(TABLE_COURSESTABLE, values, selection, selectionArgs);
+                .update(TABLE_GRADESTABLE, values, selection, selectionArgs);
     }
     @Nullable
     @Override
