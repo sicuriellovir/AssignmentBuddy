@@ -103,4 +103,20 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.564" />
 
+    <!-- Calendar Button (temporary) -->
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="236dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:background="#0073EE"
+        android:text="Calendar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.906" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
