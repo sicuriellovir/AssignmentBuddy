@@ -9,4 +9,7 @@
     <string name="TodoButton">To-Do</string>
     <string name="MessengerButton">Messenger</string>
     <string name="SettingsButton">Settings</string>
+    <string name="new_task">New Task</string>
+    <string name="clear_tasks">Clear Tasks</string>
+    <string name="to_do">To-Do</string>
 </resources>
