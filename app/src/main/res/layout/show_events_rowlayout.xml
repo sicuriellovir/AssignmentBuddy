@@ -19,7 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@android:color/holo_blue_dark"
+                android:textColor="#000000"
                 android:id="@+id/eventdate"
                 android:textStyle="bold"
                 android:text="Date"
@@ -29,21 +29,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@android:color/holo_purple"
+                android:textColor="#000000"
                 android:id="@+id/eventname"
                 android:textStyle="bold"
                 android:text="Event"
-                android:textSize="40dp" />
+                android:textAllCaps="true"
+                android:textSize="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@android:color/holo_green_dark"
+                android:textColor="#1862ed"
                 android:id="@+id/eventime"
                 android:textStyle="bold"
                 android:text="Time"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

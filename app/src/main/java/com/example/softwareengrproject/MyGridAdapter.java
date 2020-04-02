@@ -57,7 +57,7 @@ public class MyGridAdapter extends ArrayAdapter {
             view.setBackgroundColor(getContext().getResources().getColor(R.color.green));
         }
         else{
-            view.setBackgroundColor(Color.parseColor("#cccccc"));
+            view.setBackgroundColor(Color.parseColor("#ffffff"));
         }
 
         TextView Day_Number = view.findViewById(R.id.calendar_day);
