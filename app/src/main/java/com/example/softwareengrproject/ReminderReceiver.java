@@ -14,7 +14,7 @@ public class ReminderReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        // TODO: substitute assignment names in notification
+        // TODO: substitute assignment names in notification text
         PendingIntent pi = PendingIntent.getActivity(context,0, new Intent(context, AccountScreen.class),0);
         Log.i("BR", "Broadcast Received!");
 
