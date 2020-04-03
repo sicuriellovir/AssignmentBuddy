@@ -18,6 +18,7 @@ public class HomeScreen extends AppCompatActivity {
 
         Button button = findViewById(R.id.button);
         Button button2 = findViewById((R.id.button2));
+        Button button3 = findViewById((R.id.button3));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,9 +33,15 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivity4();
+            }
+        });
+
 
     }
-
 
     public void openActivity2() {
         Intent intent = new Intent(this, LoginScreen.class);
@@ -43,6 +50,11 @@ public class HomeScreen extends AppCompatActivity {
 
     public void openActivity3() {
         Intent intent = new Intent(this, ScreenRegister.class);
+        startActivity(intent);
+    }
+
+    public void openActivity4() {
+        Intent intent = new Intent(this, CalendarScreen.class);
         startActivity(intent);
     }
 }

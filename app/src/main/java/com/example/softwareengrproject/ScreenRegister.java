@@ -15,8 +15,8 @@ public class ScreenRegister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_register);
 
-        Button button = findViewById(R.id.button);
-        Button button2 = findViewById((R.id.button2));
+        Button button = findViewById(R.id.buttonStudent);
+        Button button2 = findViewById((R.id.buttonProf));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,13 +34,23 @@ public class ScreenRegister extends AppCompatActivity {
 
     public void openActivity4()
     {
-//        Intent intent = new Intent(this, .class);
-//        startActivity(intent);
+        // Bundle to store account type and send to infoScreen
+        String type = "Student";
+        Bundle bundle = new Bundle();
+        bundle.putString("type", type);
+        Intent intent = new Intent(ScreenRegister.this, InfoScreenFragment.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
     public void openActivity5()
     {
-//        Intent intent = new Intent(this, .class);
-//        startActivity(intent);
+        // Bundle to store account type and send to infoScreen
+        String type = "Professor";
+        Bundle bundle = new Bundle();
+        bundle.putString("type", type);
+        Intent intent = new Intent(ScreenRegister.this, InfoScreenFragment.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }
