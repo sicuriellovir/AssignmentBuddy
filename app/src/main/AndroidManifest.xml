@@ -9,15 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CoursesActivity"></activity>
 
-        <provider
-            android:name=".AcctDB"
-            android:authorities="com.example.softwareengrproject.provider"
+
+        <receiver
+            android:name=".ReminderReceiver"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+        </receiver>
 
         <activity android:name=".LoginScreen" />
+        <activity android:name=".CalendarScreen" />
+        <activity android:name=".ScreenRegister" />
+        <activity android:name=".AccountScreen" />
+        <activity android:name=".CoursesActivity" />
+        <activity android:name=".CourseDetail" />
+        <activity android:name=".InfoScreenFragment" />
+        <activity android:name=".ToDoList" />
         <activity android:name=".HomeScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +35,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name=".AcctDB"
+            android:authorities="com.example.softwareengrproject.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.example.softwareengrproject.provider.ACCESS_PERMISSION"
+            android:readPermission="android.permission.READ_EXTERNAL_STORAGE"
+            android:writePermission="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <provider
+            android:name=".CoursesDB"
+            android:authorities="com.example.softwareengrproject.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.example.softwareengrproject.provider.ACCESS_PERMISSION"
+            android:readPermission="android.permission.READ_EXTERNAL_STORAGE"
+            android:writePermission="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <provider
+            android:name=".GradesDB"
+            android:authorities="com.example.softwareengrproject.provider"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.example.softwareengrproject.provider.ACCESS_PERMISSION"
+            android:readPermission="android.permission.READ_EXTERNAL_STORAGE"
+            android:writePermission="android.permission.WRITE_EXTERNAL_STORAGE" />
     </application>
 
 </manifest>
