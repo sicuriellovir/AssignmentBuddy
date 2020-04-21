@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceFragmentCompat;
+//import androidx.preference.PreferenceFragmentCompat;
 
 public class SettingsActivityPage extends AppCompatActivity {
 
