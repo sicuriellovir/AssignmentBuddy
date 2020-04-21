@@ -24,7 +24,7 @@ public class LoginScreen extends AppCompatActivity {
             }
         });
 
-        Button Back = findViewById((R.id.Back));
+        Button Back = findViewById((R.id.BackButtonSettings));
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +32,13 @@ public class LoginScreen extends AppCompatActivity {
             }
         });
 
+        Button next = findViewById((R.id.button10));
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                next();
+            }
+        });
     }
 
     //TODO: Additional functionality to "SIGN IN" button
@@ -43,6 +50,11 @@ public class LoginScreen extends AppCompatActivity {
 
     public void goBack(){
         Intent intent = new Intent(this, HomeScreen.class);
+        startActivity(intent);
+    }
+
+    public void next(){
+        Intent intent = new Intent(this,SettingsActivityPage.class);
         startActivity(intent);
     }
 }

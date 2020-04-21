@@ -9,6 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".PrivacyMessages"></activity>
+        <activity android:name=".PrivacyNotif" />
+        <activity android:name=".NotificationsScreen" />
+        <activity
+            android:name=".SettingsActivityPage"
+            android:label="@string/title_settings_activity" />
         <activity android:name=".GradeDetail"></activity>
         <activity android:name=".messengeractivity"></activity>
         <receiver
