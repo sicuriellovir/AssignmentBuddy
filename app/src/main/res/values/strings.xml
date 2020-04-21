@@ -7,7 +7,7 @@
 
     <string name="assignment_buddy">Assignment Buddy</string>
     <string name="Username">Button</string>
-
+    <string name="input_placeholder">Write a message</string>
     <string name="CourseButton">Courses</string>
     <string name="TodoButton">To-Do</string>
     <string name="MessengerButton">Messenger</string>
