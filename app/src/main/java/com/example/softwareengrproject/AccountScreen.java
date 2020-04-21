@@ -34,9 +34,15 @@ public class AccountScreen extends AppCompatActivity {
             }
         });
 
-        //TODO: Add button functionality for - Messenger & Settings activity page
+        //TODO: Add button functionality for Messenger activity page
         //...buttonMessenger
-        //...buttonSettings
+        
+       buttonSettings.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               openActivitySettings();
+           }
+       });
 
         buttonCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +65,7 @@ public class AccountScreen extends AppCompatActivity {
          startActivity(intent);
     }
 
-    //TODO: Remove comment brackets once activity pages for Messenger & Settings has been implemented in master branch
+    //TODO: Remove comment brackets once activity pages for Messenger has been implemented in master branch
 /*
     public void openActivityMessenger()
     {
@@ -67,14 +73,14 @@ public class AccountScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+*/
 
     public void openActivitySettings()
     {
-        Intent intent = new Intent(this, settings.class);
+        Intent intent = new Intent(this, SettingsActivityPage.class);
         startActivity(intent);
     }
-*/
+
 
     public void openActivityCalendar()
     {

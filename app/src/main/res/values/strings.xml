@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Software Engr. Project</string>
 
     <!-- TODO: Remove or change this placeholder text -->
@@ -15,4 +15,36 @@
     <string name="new_task">New Task</string>
     <string name="clear_tasks">Clear Tasks</string>
     <string name="to_do">To-Do</string>
+    <string name="title_settings_activity" />
+    <string name="messages_header" />
+    <string name="signature_title" />
+    <string name="reply_title" />
+    <string name="sync_header" />
+    <string name="sync_title" />
+    <string name="attachment_title" />
+    <string name="attachment_summary_on" />
+    <string name="attachment_summary_off" />
+    <string name="log_out">LOG OUT</string>
+    <string name="button">Button</string>
+    <string name="privacy_settings">Privacy Settings</string>
+    <string name="change_password">Change password</string>
+    <string name="upcoming_due_date">Upcoming Due Date</string>
+    <string name="calendar_events">Calendar Events</string>
+    <string name="course_announcements">Course Announcements</string>
+    <string name="grades">Grades</string>
+    <string name="new_course_content">New Course Content</string>
+    <string name="submit">Submit</string>
+    <string name="repeat_new_password">Repeat New Password</string>
+    <string name="new_password">New Password</string>
+    <string name="current_password">Current Password</string>
+    <string name="back" tools:ignore="DuplicateDefinition">Back</string>
+    <string name="change_password1">Change Password</string>
+    <string name="notifications" />
+    <string name="everyone">Everyone</string>
+    <string name="notifications_prefers">Notifications Prefers</string>
+    <string name="messages">Messages</string>
+    <string name="only_people_in_my_class">Only People In My Class</string>
+    <string name="who_can_message_me">Who Can Message Me</string>
+    <string name="privacy">Privacy</string>
+    <string name="back1">BAck</string>
 </resources>
