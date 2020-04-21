@@ -16,6 +16,14 @@ public class LoginScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loginscreen);
 
+        Button login_submit = findViewById((R.id.login_submit));
+        login_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                submit();
+            }
+        });
+
         Button Back = findViewById((R.id.Back));
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -24,6 +32,13 @@ public class LoginScreen extends AppCompatActivity {
             }
         });
 
+    }
+
+    //TODO: Additional functionality to "SIGN IN" button
+    //TODO: Check User exists in DB & open to user's Account Screen
+    public void submit(){
+        Intent intent = new Intent(this, AccountScreen.class);
+        startActivity(intent);
     }
 
     public void goBack(){
