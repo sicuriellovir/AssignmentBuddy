@@ -18,11 +18,30 @@ public class AccountScreen extends AppCompatActivity {
         Button buttonTodo = findViewById(R.id.button3);
         Button buttonMessenger = findViewById(R.id.button5);
         Button buttonSettings = findViewById(R.id.button6);
+        Button buttonCalendar = findViewById(R.id.button7);
 
         buttonCourses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openActivityCourse();
+            }
+        });
+
+        buttonTodo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivityTodo();
+            }
+        });
+
+        //TODO: Add button functionality for - Messenger & Settings activity page
+        //...buttonMessenger
+        //...buttonSettings
+
+        buttonCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openActivityCalendar();
             }
         });
     }
@@ -33,18 +52,22 @@ public class AccountScreen extends AppCompatActivity {
         Intent intent = new Intent(this, CoursesActivity.class);
         startActivity(intent);
     }
-    /*
+
     public void openActivityTodo()
     {
-         Intent intent = new Intent(this, todopage.class);
+         Intent intent = new Intent(this, ToDoList.class);
          startActivity(intent);
     }
 
+    //TODO: Remove comment brackets once activity pages for Messenger & Settings has been implemented in master branch
+/*
     public void openActivityMessenger()
     {
         Intent intent = new Intent(this, messenger.class);
         startActivity(intent);
     }
+
+
 
     public void openActivitySettings()
     {
@@ -52,4 +75,10 @@ public class AccountScreen extends AppCompatActivity {
         startActivity(intent);
     }
 */
+
+    public void openActivityCalendar()
+    {
+        Intent intent = new Intent(this, CalendarScreen.class);
+        startActivity(intent);
+    }
 }
