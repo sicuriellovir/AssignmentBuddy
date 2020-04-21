@@ -1,6 +1,6 @@
 package com.example.softwareengrproject;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
         import android.content.Intent;
         import android.view.View;
         import android.widget.Button;
@@ -19,36 +19,25 @@ public class AccountScreen extends AppCompatActivity {
         Button buttonMessenger = findViewById(R.id.button5);
         Button buttonSettings = findViewById(R.id.button6);
 
-        buttonTodo.setOnClickListener(new View.OnClickListener() {
+        buttonCourses.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                openActivityTodo();
+            public void onClick(View v) {
+                openActivityCourse();
             }
         });
-
-        String user = "";
-
-        // To get the username entered from previous activity
-        Bundle bundle = getIntent().getExtras();
-        if( bundle != null )
-        {
-            user = bundle.getString("username");
-        }
-
     }
 
-    public void openActivityTodo()
-    {
-         Intent intent = new Intent(this, ToDoList.class);
-         startActivity(intent);
-    }
 
-    /*
     public void openActivityCourse()
     {
-        Intent intent = new Intent(this, course.class);
+        Intent intent = new Intent(this, CoursesActivity.class);
         startActivity(intent);
+    }
+    /*
+    public void openActivityTodo()
+    {
+         Intent intent = new Intent(this, todopage.class);
+         startActivity(intent);
     }
 
     public void openActivityMessenger()
