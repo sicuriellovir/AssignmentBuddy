@@ -56,7 +56,7 @@ Here you can create the Login page.
         android:textSize="22sp" />
 
     <Button
-        android:id="@+id/Back"
+        android:id="@+id/BackButtonSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -68,4 +68,16 @@ Here you can create the Login page.
         android:background="#0073EE"
         android:text="Back"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="46dp"
+        android:layout_marginRight="46dp"
+        android:layout_marginBottom="62dp"
+        android:text="Next" />
 </RelativeLayout>
