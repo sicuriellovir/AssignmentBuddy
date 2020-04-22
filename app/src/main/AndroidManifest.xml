@@ -50,22 +50,7 @@
             android:permission="com.example.softwareengrproject.provider.ACCESS_PERMISSION"
             android:readPermission="android.permission.READ_EXTERNAL_STORAGE"
             android:writePermission="android.permission.WRITE_EXTERNAL_STORAGE" />
-        <provider
-            android:name=".CoursesDB"
-            android:authorities="com.example.softwareengrproject.provider"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="com.example.softwareengrproject.provider.ACCESS_PERMISSION"
-            android:readPermission="android.permission.READ_EXTERNAL_STORAGE"
-            android:writePermission="android.permission.WRITE_EXTERNAL_STORAGE" />
-        <provider
-            android:name=".GradesDB"
-            android:authorities="com.example.softwareengrproject.provider"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="com.example.softwareengrproject.provider.ACCESS_PERMISSION"
-            android:readPermission="android.permission.READ_EXTERNAL_STORAGE"
-            android:writePermission="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     </application>
 
 </manifest>
