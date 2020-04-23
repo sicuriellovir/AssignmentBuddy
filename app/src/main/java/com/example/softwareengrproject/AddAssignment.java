@@ -41,7 +41,7 @@ public class AddAssignment extends AppCompatActivity {
 
     public void add(String s)
     {
-        //add assignmemt to database
+        //add assignment to database
     }
 
     public void returnToCourseDetail()

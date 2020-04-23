@@ -7,7 +7,7 @@
     tools:context=".AddCourse">
 
     <Button
-        android:id="@+id/buttonBackToGradelist"
+        android:id="@+id/buttonBackToCourses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextAssignment"
+        android:id="@+id/editTextCourse"
         android:layout_width="383dp"
         android:layout_height="52dp"
         android:layout_marginStart="16dp"
@@ -31,16 +31,16 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBackToGradelist" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonBackToCourses" />
 
     <Button
-        android:id="@+id/addButton2"
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Add"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAssignment" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCourse" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

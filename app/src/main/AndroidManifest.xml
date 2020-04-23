@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AddCourse"></activity>
         <activity android:name=".AddAssignment"></activity>
-        <activity android:name=".AddCourse" />
         <activity android:name=".PrivacyMessages" />
         <activity android:name=".PrivacyNotif" />
         <activity android:name=".NotificationsScreen" />
