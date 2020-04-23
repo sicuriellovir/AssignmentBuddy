@@ -7,7 +7,7 @@
     tools:context=".CoursesActivity">
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/courses_listview"
         android:layout_width="419dp"
         android:layout_height="647dp"
         android:layout_marginTop="88dp"

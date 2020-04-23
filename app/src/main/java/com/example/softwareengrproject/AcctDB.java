@@ -35,15 +35,16 @@ public class AcctDB extends ContentProvider {
     private static final String SQL_CREATE_COURSES =
             "CREATE TABLE " + TABLE_COURSESTABLE + "(" + "_ID INTEGER PRIMARY KEY, " + COLUMN_COURSE_USER_ID + " TEXT," + COLUMN_COURSES + " TEXT);";
 
-
     //Grades table constants
     public final static String TABLE_GRADES_TABLE = "GradesTable";
     public final static String COLUMN_GRADES_USER_ID = "gradesuserID";
     public final static String COLUMN_COURSE_ID = "courseID";
+    public final static String COLUMN_ASSIGNMENT_DUE_DAY = "dueDay";
+    public final static String COLUMN_ASSIGNMENT_DUE_MONTH = "dueMonth";
     public final static String COLUMN_ASSIGNMENT = "assignmentName";
     public final static String COLUMN_GRADE = "assignmentGrade";
     private static final String SQL_CREATE_GRADES =
-            "CREATE TABLE " + TABLE_GRADES_TABLE + "(" + "_ID INTEGER PRIMARY KEY, " + COLUMN_GRADES_USER_ID + " TEXT," + COLUMN_COURSE_ID + " TEXT," + COLUMN_ASSIGNMENT + " TEXT," + COLUMN_GRADE + " INTEGER);";
+            "CREATE TABLE " + TABLE_GRADES_TABLE + "(" + "_ID INTEGER PRIMARY KEY, " + COLUMN_GRADES_USER_ID + " TEXT," + COLUMN_COURSE_ID + " TEXT," + COLUMN_ASSIGNMENT + " TEXT," + COLUMN_ASSIGNMENT_DUE_MONTH + " INTEGER,"+COLUMN_ASSIGNMENT_DUE_DAY + " INTEGER," +COLUMN_GRADE + " INTEGER);";
 
 
     // Messenger table constants
@@ -55,7 +56,7 @@ public class AcctDB extends ContentProvider {
             "CREATE TABLE " + TABLE_MESSENGER_TABLE + "(" + "_ID INTEGER PRIMARY KEY, " + COLUMN_TO + " TEXT," + COLUMN_MESSAGE +
                     " TEXT," + COLUMN_FROM + " TEXT);";
 
-    public static final int DBVERSION = 2;
+    public static final int DBVERSION = 4;
     public final static String PROVIDER = "com.example.softwareengrproject.provider";
     DataHelper mDataHelper;
     public final static Uri CONTENT_URI_GRADES = Uri.parse("content://com.example.softwareengrproject.provider" + "/" + TABLE_GRADES_TABLE);
@@ -100,7 +101,7 @@ public class AcctDB extends ContentProvider {
         uriMatcher.addURI(PROVIDER, TABLE_ACCTTABLE + "/#", ACCT_ID);
         uriMatcher.addURI(PROVIDER, TABLE_GRADES_TABLE, GRADES);
         uriMatcher.addURI(PROVIDER, TABLE_GRADES_TABLE + "/#", GRADES_ID);
-        uriMatcher.addURI(PROVIDER, TABLE_COURSESTABLE, COURSES);
+        uriMatcher.addURI(PROVIDER, "/"+TABLE_COURSESTABLE, COURSES);
         uriMatcher.addURI(PROVIDER, TABLE_COURSESTABLE + "/#", COURSES_ID);
         uriMatcher.addURI(PROVIDER, TABLE_MESSENGER_TABLE, MESSENGER);
         uriMatcher.addURI(PROVIDER, TABLE_MESSENGER_TABLE + "/#", MESSENGER_ID);
@@ -133,12 +134,14 @@ public class AcctDB extends ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
+
         switch(uriMatcher.match(uri)) {
             case ACCT:
                 return mDataHelper.getReadableDatabase().query(TABLE_ACCTTABLE, projection, selection, selectionArgs, null, null, sortOrder);
             case GRADES:
                 return mDataHelper.getReadableDatabase().query(TABLE_GRADES_TABLE, projection, selection, selectionArgs, null, null, sortOrder);
             case COURSES:
+                Log.d("QUERY","inside");
                 return mDataHelper.getReadableDatabase().query(TABLE_COURSESTABLE, projection, selection, selectionArgs, null, null, sortOrder);
             case MESSENGER:
                 return mDataHelper.getReadableDatabase().query(TABLE_MESSENGER_TABLE, projection, selection, selectionArgs, null, null, sortOrder);
@@ -187,11 +190,11 @@ public class AcctDB extends ContentProvider {
                 else if(username.equals("") || passwd.equals("")||fname.equals("")|| lname.equals("")||type.equals("")){
                     return null;
                 }
-                Log.d("Acct","adding user!");
                 long id1 = mDataHelper.getWritableDatabase().insert(TABLE_ACCTTABLE, null, values);
                 return Uri.withAppendedPath(CONTENT_URI_ACCT, "" + id1);
             case COURSES:
-                String courses_username = values.getAsString(COLUMN_COURSE_ID);
+                Log.d("Insert", "courses");
+                String courses_username = values.getAsString(COLUMN_COURSE_USER_ID);
                 String courses_courseName = values.getAsString(COLUMN_COURSES);
 
                 if(courses_username == null || courses_courseName == null){

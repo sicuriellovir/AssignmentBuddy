@@ -47,6 +47,7 @@ public class LoginScreen extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(),"Incorrect username or password!", Toast.LENGTH_SHORT ).show();
                 }
+                mCursor.close();
             }
         });
 
@@ -67,8 +68,6 @@ public class LoginScreen extends AppCompatActivity {
         });
     }
 
-    //TODO: Additional functionality to "SIGN IN" button
-    //TODO: Check User exists in DB & open to user's Account Screen
     public void submit(){
 
         Intent intent = new Intent(this, AccountScreen.class);

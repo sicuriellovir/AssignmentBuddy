@@ -2,6 +2,7 @@ package com.example.softwareengrproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,10 +12,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivityPage extends AppCompatActivity {
 
+    String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
+        Bundle extras = getIntent().getExtras();
+
+        if ( extras != null )
+        {
+            userName = extras.getString("username");
+            Log.d("Bundle user", userName);
+        }
        /* getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.settings, new SettingsFragment())
