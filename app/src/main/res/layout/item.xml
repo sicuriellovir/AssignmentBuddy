@@ -2,13 +2,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:orientation="vertical">
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:paddingTop="20dp"
+        android:src="@drawable/task_bullet_point" />
+
     <TextView
         android:id="@+id/task"
-        android:layout_width="match_parent"
+        android:layout_width="320dp"
         android:layout_height="match_parent"
-        android:padding="16dp"
         android:gravity="center_vertical"
+        android:padding="16dp"
         android:textColor="@color/black" />
 
 </LinearLayout>
+
