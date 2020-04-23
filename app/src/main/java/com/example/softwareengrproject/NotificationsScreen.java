@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class NotificationsScreen extends AppCompatActivity {
 
@@ -14,7 +15,8 @@ public class NotificationsScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications_screen);
 
-        Button Back = findViewById((R.id.button7));
+        //Note: [when merging] Changed from Button to ImageButton
+        ImageButton Back = findViewById((R.id.button7));
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
