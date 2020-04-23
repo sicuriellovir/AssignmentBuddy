@@ -72,7 +72,6 @@ public class CoursesActivity extends AppCompatActivity {
         for (int i = 0; i < SIZE - 1; i++) {
             temp[i] = classNames[i];
         }
-
         classNames = temp;  //set classNames to the new String array with added class
 
 

@@ -8,22 +8,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AddCourse extends AppCompatActivity {
+public class AddAssignment extends AppCompatActivity {
 
     EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_course);
+        setContentView(R.layout.activity_add_assignment);
 
-        editText = findViewById(R.id.editTextAssignment);   //editText is where they enter the courseID
+        editText = findViewById(R.id.editTextAssignment);
 
-        Button back2Courses = findViewById(R.id.buttonBackToGradelist);
-        back2Courses.setOnClickListener( new View.OnClickListener() {
+        Button back2Gradelist = findViewById(R.id.buttonBackToGradelist);
+        back2Gradelist.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                returnToCourses();
+                returnToCourseDetail();
             }
         });
 
@@ -41,12 +41,13 @@ public class AddCourse extends AppCompatActivity {
 
     public void add(String s)
     {
-        //add course to database
+        //add assignmemt to database
     }
 
-    public void returnToCourses()
+    public void returnToCourseDetail()
     {
-        Intent intent = new Intent(this, CoursesActivity.class);
+        Intent intent = new Intent(this, CourseDetail.class);
         startActivity(intent);
     }
+
 }

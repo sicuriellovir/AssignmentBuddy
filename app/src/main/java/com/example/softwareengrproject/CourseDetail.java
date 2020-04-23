@@ -50,11 +50,25 @@ public class CourseDetail extends AppCompatActivity
                 returnToCourses();
             }
         });
+
+        Button addAssignment = findViewById(R.id.addAssignmentButton);
+        addAssignment.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAddAssignment();
+            }
+        });
     }
 
     public void returnToCourses()
     {
         Intent intent = new Intent(this, CoursesActivity.class);
+        startActivity(intent);
+    }
+
+    public void openAddAssignment()
+    {
+        Intent intent = new Intent(this, AddAssignment.class);
         startActivity(intent);
     }
 }
