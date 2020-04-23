@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteCursor;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
+import java.io.*;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,36 +87,38 @@ public class InfoScreenFragment extends AppCompatActivity {
                    if (flag) {
                        Log.d("Flag true", "MADE IT");
                        Cursor mCursor;
-                       String[] mProjection = new String[]{ AcctDB.COLUMN_ID };
+                       String[] mProjection = new String[]{ AcctDB.COLUMN_ACCT_ID };
                        //Cursor for the id column in content provider
-                       String mSelection = AcctDB.COLUMN_ID + "= ?";
+                       String mSelection = AcctDB.COLUMN_ACCT_ID + "= ?";
                        uNameText = uNameText.trim();
                        String[] mSelectionArgs = new String[]{uNameText};
 
                        Log.v("Try block", "cursor");
                        //Query
-                       mCursor = getContentResolver().query(AcctDB.CONTENT_URI, mProjection, mSelection, mSelectionArgs, null);
-                       if( mCursor == null )
+                       mCursor = getContentResolver().query(AcctDB.CONTENT_URI_ACCT, mProjection, mSelection, mSelectionArgs, null);
+                       if( !mCursor.moveToFirst() )
                        {
+                           Log.d("QUERY: ","User added!");
                             Uri uri;
 
                            // No existing user
                            // Create new user for account
                            ContentValues cv = new ContentValues();
-                           cv.put(AcctDB.COLUMN_ID, uNameText);
+                           cv.put(AcctDB.COLUMN_ACCT_ID, uNameText);
                            cv.put(AcctDB.COLUMN_FNAME, fNameText);
                            cv.put(AcctDB.COLUMN_LNAME, lNameText);
                            cv.put(AcctDB.COLUMN_ACCT_TYPE, acctType);
                            cv.put(AcctDB.COLUMN_PASSWD, passwdText);
-
-                           uri = getContentResolver().insert(AcctDB.CONTENT_URI, cv);
-
+                           // Log.d("ISF URI: ", AcctDB.CONTENT_URI_ACCT.toString());
+                           uri = getContentResolver().insert(AcctDB.CONTENT_URI_ACCT, cv);
+                           Log.d("USERNAME: ",uNameText);
+                           Log.d("PASSWORD: ", passwdText);
                            Intent i = new Intent(InfoScreenFragment.this, AccountScreen.class);
                            Bundle b = new Bundle();
                            b.putString("username",uNameText);
                            i.putExtras(b);
-                           startActivity(i);
 
+                           startActivity(i);
                        } else {
                            Toast.makeText(getApplicationContext(), "User Already Exists", Toast.LENGTH_SHORT).show();
                        }
