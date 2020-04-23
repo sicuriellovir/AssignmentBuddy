@@ -42,8 +42,13 @@ public class AccountScreen extends AppCompatActivity {
             }
         });
 
-        //TODO: Add button functionality for Messenger activity page
-        //...buttonMessenger
+
+        buttonMessenger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivityChatMessenger();
+            }
+        });
         
        buttonSettings.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -79,18 +84,13 @@ public class AccountScreen extends AppCompatActivity {
          startActivity(intent);
     }
 
-    //TODO: Remove comment brackets once activity pages for Messenger has been implemented in master branch
-/*
-    public void openActivityMessenger()
-    {
-        Intent intent = new Intent(this, messenger.class);
+    public void openActivityChatMessenger() {
+        Intent intent = new Intent(this, messengerchats.class);
         Bundle b = new Bundle();
-        b.putString("username",userName);
+        b.putString("username", userName);
         intent.putExtras(b);
         startActivity(intent);
     }
-
-*/
 
     public void openActivitySettings()
     {
