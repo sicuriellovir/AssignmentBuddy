@@ -90,7 +90,7 @@ public class ToDoList extends AppCompatActivity {
                 taskInput.setSingleLine();
                 AlertDialog dialog = new AlertDialog.Builder(ToDoList.this)
                         .setTitle("Add a new Task")
-                        .setMessage("What is your new task?")
+                        .setMessage("Task description:")
                         .setView(taskInput)
                         .setPositiveButton("Add Task", new DialogInterface.OnClickListener() {
                             @Override
@@ -113,7 +113,7 @@ public class ToDoList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog dialog = new AlertDialog.Builder(ToDoList.this)
-                        .setTitle("Delete All Tasks?")
+                        .setTitle("Delete All Tasks")
                         .setMessage("Do you really want to delete all the tasks?")
                         .setPositiveButton("Delete All Tasks", new DialogInterface.OnClickListener() {
                             @Override

@@ -33,6 +33,13 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openTodoListActivity();
+            }
+        });
+
     }
 
     public void openActivity2() {
@@ -42,6 +49,11 @@ public class HomeScreen extends AppCompatActivity {
 
     public void openActivity3() {
         Intent intent = new Intent(this, ScreenRegister.class);
+        startActivity(intent);
+    }
+
+    public void openTodoListActivity(){
+        Intent intent = new Intent(this, ToDoList.class);
         startActivity(intent);
     }
 

@@ -3,30 +3,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:background="@drawable/bg_homescreen">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="80dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/newTaskButton"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/new_task"
-            android:typeface="monospace"
-            tools:ignore="ButtonStyle" />
+            android:src="@drawable/todo_list_header"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp"
+            />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+        <LinearLayout
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:paddingRight="5dp"
+            android:paddingLeft="5dp">
+        <Button
+            android:id="@+id/newTaskButton"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="@string/new_task"
+            android:background="@drawable/black_rounded_button"
+            android:textColor="@color/white"
+            android:typeface="serif"
+            tools:ignore="ButtonStyle" /> </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
         <Button
             android:id="@+id/deleteAllTasksButton"
-            android:layout_width="0dp"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:text="@string/clear_tasks"
-            android:typeface="monospace"
+            android:background="@drawable/black_rounded_button"
+            android:textColor="@color/white"
+            android:typeface="serif"
+            android:layout_weight="1"
             tools:ignore="ButtonStyle" />
+        </LinearLayout>
 
 
     </LinearLayout>
