@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,12 +31,19 @@ public class ToDoList extends AppCompatActivity {
     final List<String> list = new ArrayList<>();
     int[] backgroundColors;
     int [] textColors;
-
+    String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_list);
+        Bundle extras = getIntent().getExtras();
+
+        if ( extras != null )
+        {
+            userName = extras.getString("username");
+            Log.d("Bundle user", userName);
+        }
 
         final ListView listView = findViewById(R.id.listView);
         final TextAdapter adapter = new TextAdapter();

@@ -9,11 +9,19 @@ package com.example.softwareengrproject;
 
 public class AccountScreen extends AppCompatActivity {
 
+    private String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_screen);
 
+        Bundle extras = getIntent().getExtras();
+
+        if ( extras != null )
+        {
+            userName = extras.getString("username");
+            Log.d("Bundle user", userName);
+        }
         Button buttonCourses = findViewById(R.id.button4);
         Button buttonTodo = findViewById(R.id.button3);
         Button buttonMessenger = findViewById(R.id.button5);
@@ -56,12 +64,18 @@ public class AccountScreen extends AppCompatActivity {
     public void openActivityCourse()
     {
         Intent intent = new Intent(this, CoursesActivity.class);
+        Bundle b = new Bundle();
+        b.putString("username",userName);
+        intent.putExtras(b);
         startActivity(intent);
     }
 
     public void openActivityTodo()
     {
          Intent intent = new Intent(this, ToDoList.class);
+        Bundle b = new Bundle();
+        b.putString("username",userName);
+        intent.putExtras(b);
          startActivity(intent);
     }
 
@@ -70,6 +84,9 @@ public class AccountScreen extends AppCompatActivity {
     public void openActivityMessenger()
     {
         Intent intent = new Intent(this, messenger.class);
+        Bundle b = new Bundle();
+        b.putString("username",userName);
+        intent.putExtras(b);
         startActivity(intent);
     }
 
@@ -78,6 +95,9 @@ public class AccountScreen extends AppCompatActivity {
     public void openActivitySettings()
     {
         Intent intent = new Intent(this, SettingsActivityPage.class);
+        Bundle b = new Bundle();
+        b.putString("username",userName);
+        intent.putExtras(b);
         startActivity(intent);
     }
 
@@ -85,6 +105,9 @@ public class AccountScreen extends AppCompatActivity {
     public void openActivityCalendar()
     {
         Intent intent = new Intent(this, CalendarScreen.class);
+        Bundle b = new Bundle();
+        b.putString("username",userName);
+        intent.putExtras(b);
         startActivity(intent);
     }
 }
