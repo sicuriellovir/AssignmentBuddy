@@ -18,6 +18,7 @@ public class HomeScreen extends AppCompatActivity {
 
         Button button = findViewById(R.id.button);
         Button button2 = findViewById((R.id.button2));
+        //button3 to test AccountScreen activity
         Button button3 = findViewById((R.id.button3));
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +34,13 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openAccountScreenActivity();
+            }
+        });
+
     }
 
     public void openActivity2() {
@@ -42,6 +50,11 @@ public class HomeScreen extends AppCompatActivity {
 
     public void openActivity3() {
         Intent intent = new Intent(this, ScreenRegister.class);
+        startActivity(intent);
+    }
+
+    public void openAccountScreenActivity() {
+        Intent intent = new Intent(this, AccountScreen.class);
         startActivity(intent);
     }
 
