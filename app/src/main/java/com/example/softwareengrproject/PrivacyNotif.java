@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class PrivacyNotif extends AppCompatActivity {
 
@@ -20,7 +21,8 @@ public class PrivacyNotif extends AppCompatActivity {
         setContentView(R.layout.activity_privacy_notif);
 
 
-        Button Back = findViewById((R.id.PrivacyBack));
+        //Note: [when merging] Changed from Button to ImageButton
+        ImageButton Back = findViewById((R.id.PrivacyBack));
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
