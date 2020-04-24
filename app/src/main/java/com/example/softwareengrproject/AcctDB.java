@@ -1,5 +1,6 @@
 package com.example.softwareengrproject;
 
+import android.annotation.SuppressLint;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
@@ -27,6 +28,8 @@ public class AcctDB extends ContentProvider{
     private static final String SQL_CREATE_MAIN =
             "CREATE TABLE " + TABLE_ACCTTABLE +"(" +"_ID INTEGER PRIMARY KEY, " + COLUMN_ID + " TEXT,"+ COLUMN_FNAME + " TEXT,"
                     + COLUMN_LNAME + " TEXT," + COLUMN_PASSWD + " TEXT," + COLUMN_ACCT_TYPE +" TEXT)";
+    private Object SQLiteDatabase;
+
 
     protected static final class AcctDBHelper extends SQLiteOpenHelper
     {
@@ -44,6 +47,14 @@ public class AcctDB extends ContentProvider{
         @Override
         public void onUpgrade(SQLiteDatabase arg0,
                               int arg1, int arg2) {}
+
+
+        public void changePassword(String name, String password) {
+
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.rawQuery(" UPDATE "+AcctDB.TABLE_ACCTTABLE+" SET"+AcctDB.COLUMN_PASSWD+" = '"+password+"' WHERE "+AcctDB.COLUMN_ID+" =?", new String[] {name});
+
+        }
     }
     AcctDBHelper mOpenHelper;
     @Override
@@ -120,6 +131,14 @@ public class AcctDB extends ContentProvider{
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
         return 0;
+    }
+
+    public void changePass(String name, String password) {
+
+       // SQLiteDatabase db = this.getWritableDatabase();
+        //db.rawQuery(" UPDATE "+AcctDB.TABLE_ACCTTABLE+" SET"+AcctDB.COLUMN_PASSWD+" = '"+password+"' WHERE "+AcctDB.COLUMN_ID+" =?", new String[] {name});
+        AcctDBHelper helper = new AcctDBHelper(getContext());
+        helper.changePassword(name,password);
     }
 
 
