@@ -33,14 +33,6 @@ public class HomeScreen extends AppCompatActivity {
             }
         });
 
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivity4();
-            }
-        });
-
-
     }
 
     public void openActivity2() {
@@ -53,8 +45,4 @@ public class HomeScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openActivity4() {
-        Intent intent = new Intent(this, CalendarScreen.class);
-        startActivity(intent);
-    }
 }
