@@ -32,8 +32,7 @@ public class messengerchats extends AppCompatActivity implements  AdapterView.On
 
         Bundle extras = getIntent().getExtras();
 
-        if ( extras != null )
-        {
+        if ( extras != null ) {
             userName = extras.getString("username");
             Log.d("Bundle user", userName);
         }
@@ -46,6 +45,7 @@ public class messengerchats extends AppCompatActivity implements  AdapterView.On
         String mSelection = AcctDB.COLUMN_TO + "= ? OR " + AcctDB.COLUMN_FROM + " = ?";
 
         String[] mSelectionArgs = new String[]{userName, userName};
+
         mCursor = getContentResolver().query(AcctDB.CONTENT_URI_MESSAGES, mProjection, mSelection, mSelectionArgs, null);
 
         try {
@@ -55,7 +55,6 @@ public class messengerchats extends AppCompatActivity implements  AdapterView.On
 
                 String[] temp = new String[mCursor.getCount()];
                 int entries = 0;
-
 
                 for (int i = 0; i < temp.length; i++) {
                     if (userName.equals(mCursor.getString(0)))

@@ -2,9 +2,13 @@ package com.example.softwareengrproject;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +36,7 @@ public class ToDoList extends AppCompatActivity {
     int[] backgroundColors;
     int [] textColors;
     String userName;
+    Cursor mCursor;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -43,6 +48,11 @@ public class ToDoList extends AppCompatActivity {
         {
             userName = extras.getString("username");
             Log.d("Bundle user", userName);
+
+            String [] mProjection = new String[]{ AcctDB.COLUMN_TASK };
+            String mSelection = AcctDB.COLUMN_TODO_USER + " = ?";
+            String [] mSelectionArgs = new String[]{userName};
+
         }
 
         final ListView listView = findViewById(R.id.listView);
@@ -97,6 +107,14 @@ public class ToDoList extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 list.add(taskInput.getText().toString());
                                 adapter.setData(list, backgroundColors, textColors);
+
+                                //Add to table
+                                Uri uri;
+                                ContentValues cv = new ContentValues();
+                                cv.put(AcctDB.COLUMN_TODO_USER, userName);
+                                cv.put(AcctDB.COLUMN_TASK, taskInput.getText().toString());
+                                uri = getContentResolver().insert(AcctDB.CONTENT_URI_TODO, cv);
+
                                 saveInfo();
 
                             }
@@ -120,12 +138,32 @@ public class ToDoList extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 list.clear();
                                 adapter.setData(list, backgroundColors, textColors);
+                                if( mCursor != null )
+                                {
+                                    Uri uri;
+                                    // Delete all tasks from table
+
+                                    String mSelection = AcctDB.COLUMN_TODO_USER + " = ?";
+                                    String [] mSelectionArgs = new String[]{userName};
+                                    getContentResolver().delete(AcctDB.CONTENT_URI_TODO, mSelection, mSelectionArgs);
+                                }
                                 saveInfo();
                             }
                         })
                         .setNegativeButton("Cancel", null)
                         .create();
                 dialog.show();
+            }
+        });
+
+        final Button back = findViewById(R.id.backbuttontodo);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ToDoList.this, AccountScreen.class);
+                intent.putExtra("username",userName);
+                startActivity(intent);
+
             }
         });
     }

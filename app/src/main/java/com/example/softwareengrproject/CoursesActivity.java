@@ -117,8 +117,6 @@ public class CoursesActivity extends AppCompatActivity implements  AdapterView.O
         intent.putExtra("className", classNames[i]);
         intent.putExtra("username", userName);
         startActivity(intent);
-
-
     }
 
 

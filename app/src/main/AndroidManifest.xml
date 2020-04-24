@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".messengerchats"></activity>
+        <activity android:name=".messengerchats" />
         <activity android:name=".AddCourse" />
         <activity android:name=".AddAssignment" />
         <activity android:name=".PrivacyMessages" />

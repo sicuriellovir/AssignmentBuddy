@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 public class AddAssignment extends AppCompatActivity {
 
+    String userName;
     EditText editText;
 
     @Override
@@ -47,6 +48,7 @@ public class AddAssignment extends AppCompatActivity {
     public void returnToCourseDetail()
     {
         Intent intent = new Intent(this, CourseDetail.class);
+        intent.putExtra("userName", userName);
         startActivity(intent);
     }
 

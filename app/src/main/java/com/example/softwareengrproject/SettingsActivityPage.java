@@ -25,13 +25,6 @@ public class SettingsActivityPage extends AppCompatActivity {
             userName = extras.getString("username");
             Log.d("Bundle user", userName);
         }
-       /* getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.settings, new SettingsFragment())
-                .commit();
-        ActionBar actionBar = getSupportActionBar(); */
-       // if (actionBar != null) {
-         //   actionBar.setDisplayHomeAsUpEnabled(true);
 
             Button Notif = findViewById((R.id.buttonNotif));
             Notif.setOnClickListener(new View.OnClickListener() {
@@ -88,22 +81,26 @@ public class SettingsActivityPage extends AppCompatActivity {
 
     public void goBack() {
         Intent intent = new Intent(this, HomeScreen.class);
+        intent.putExtra("username",userName);
         startActivity(intent);
     }
 
 
     public void openNotif() {
         Intent intent = new Intent(this, NotificationsScreen.class);
+        intent.putExtra("username",userName);
         startActivity(intent);
     }
 
     public void openPrivMessage() {
         Intent intent = new Intent(this, PrivacyMessages.class);
+        intent.putExtra("username",userName);
         startActivity(intent);
     }
 
     public void passChange() {
         Intent intent = new Intent(this, PrivacyNotif.class);
+        intent.putExtra("username",userName);
         startActivity(intent);
     }
 

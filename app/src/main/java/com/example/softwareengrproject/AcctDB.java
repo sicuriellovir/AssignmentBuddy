@@ -56,13 +56,22 @@ public class AcctDB extends ContentProvider {
             "CREATE TABLE " + TABLE_MESSENGER_TABLE + "(" + "_ID INTEGER PRIMARY KEY, " + COLUMN_TO + " TEXT," + COLUMN_MESSAGE +
                     " TEXT," + COLUMN_FROM + " TEXT);";
 
-    public static final int DBVERSION = 4;
+    // Messenger table to_do constants
+    public final static String TABLE_TODO_TABLE = "TodoTable";
+    public final static String COLUMN_TODO_USER = "todouserID";
+    public final static String COLUMN_TASK = "taskText";
+    private static final String SQL_CREATE_TODO =
+            "CREATE TABLE " + TABLE_TODO_TABLE + "(" + "_ID INTEGER PRIMARY KEY, " + COLUMN_TODO_USER+ " TEXT," + COLUMN_TASK +
+                    " TEXT);";
+
+    public static final int DBVERSION = 6;
     public final static String PROVIDER = "com.example.softwareengrproject.provider";
     DataHelper mDataHelper;
     public final static Uri CONTENT_URI_GRADES = Uri.parse("content://com.example.softwareengrproject.provider" + "/" + TABLE_GRADES_TABLE);
     public final static Uri CONTENT_URI_COURSES = Uri.parse("content://com.example.softwareengrproject.provider" + "/" + TABLE_COURSESTABLE);
     public final static Uri CONTENT_URI_ACCT = Uri.parse("content://com.example.softwareengrproject.provider" + "/" + TABLE_ACCTTABLE);
     public final static Uri CONTENT_URI_MESSAGES = Uri.parse("content://com.example.softwareengrproject.provider" + "/" + TABLE_MESSENGER_TABLE);
+    public final static Uri CONTENT_URI_TODO = Uri.parse("content://com.example.softwareengrproject.provider" + "/" + TABLE_TODO_TABLE);
 
     protected static final class DataHelper extends SQLiteOpenHelper {
         DataHelper(Context context) {
@@ -75,6 +84,8 @@ public class AcctDB extends ContentProvider {
             db.execSQL(SQL_CREATE_GRADES);
             db.execSQL(SQL_CREATE_MESSENGER);
             db.execSQL(SQL_CREATE_COURSES);
+            db.execSQL(SQL_CREATE_TODO);
+
         }
 
         @Override
@@ -91,6 +102,8 @@ public class AcctDB extends ContentProvider {
     private static final int COURSES_ID = 6;
     private static final int MESSENGER = 7;
     private static final int MESSENGER_ID = 8;
+    private static final int TODO = 9;
+    private static final int TODO_ID= 10;
 
     private static final UriMatcher uriMatcher;
 
@@ -105,6 +118,8 @@ public class AcctDB extends ContentProvider {
         uriMatcher.addURI(PROVIDER, TABLE_COURSESTABLE + "/#", COURSES_ID);
         uriMatcher.addURI(PROVIDER, TABLE_MESSENGER_TABLE, MESSENGER);
         uriMatcher.addURI(PROVIDER, TABLE_MESSENGER_TABLE + "/#", MESSENGER_ID);
+        uriMatcher.addURI(PROVIDER, TABLE_TODO_TABLE, TODO);
+        uriMatcher.addURI(PROVIDER, TABLE_TODO_TABLE + "/#", TODO_ID);
     }
 
     @Override
@@ -124,7 +139,8 @@ public class AcctDB extends ContentProvider {
                 return mDataHelper.getWritableDatabase().delete(TABLE_COURSESTABLE, selection, selectionArgs);
             case MESSENGER:
                 return mDataHelper.getWritableDatabase().delete(TABLE_MESSENGER_TABLE, selection, selectionArgs);
-
+            case TODO:
+                return mDataHelper.getWritableDatabase().delete(TABLE_TODO_TABLE, selection, selectionArgs);
             default:
                 return 0;
         }
@@ -141,10 +157,11 @@ public class AcctDB extends ContentProvider {
             case GRADES:
                 return mDataHelper.getReadableDatabase().query(TABLE_GRADES_TABLE, projection, selection, selectionArgs, null, null, sortOrder);
             case COURSES:
-                Log.d("QUERY","inside");
                 return mDataHelper.getReadableDatabase().query(TABLE_COURSESTABLE, projection, selection, selectionArgs, null, null, sortOrder);
             case MESSENGER:
                 return mDataHelper.getReadableDatabase().query(TABLE_MESSENGER_TABLE, projection, selection, selectionArgs, null, null, sortOrder);
+            case TODO:
+                return mDataHelper.getReadableDatabase().query(TABLE_TODO_TABLE, projection, selection, selectionArgs, null, null, sortOrder);
             default:
                 return null;
         }
@@ -167,6 +184,8 @@ public class AcctDB extends ContentProvider {
                 return mDataHelper.getWritableDatabase().update(TABLE_GRADES_TABLE, values, selection, selectionArgs);
             case MESSENGER:
                 return mDataHelper.getWritableDatabase().update(TABLE_MESSENGER_TABLE, values, selection, selectionArgs);
+            case TODO:
+                return mDataHelper.getWritableDatabase().update(TABLE_TODO_TABLE, values, selection, selectionArgs);
             default:
                 return 0;
         }
@@ -235,6 +254,17 @@ public class AcctDB extends ContentProvider {
 
                 long id4 = mDataHelper.getWritableDatabase().insert(TABLE_MESSENGER_TABLE, null, values);
                 return Uri.withAppendedPath(CONTENT_URI_MESSAGES, "" + id4);
+            case TODO:
+                String todoUser = values.getAsString(COLUMN_TODO_USER);
+                String task = values.getAsString(COLUMN_TASK);
+
+                if( todoUser == null || task == null )
+                    return null;
+                else if (todoUser.equals("") || task.equals(""))
+                    return null;
+                long id5 = mDataHelper.getWritableDatabase().insert(TABLE_TODO_TABLE, null, values);
+                return Uri.withAppendedPath(CONTENT_URI_TODO, "" + id5);
+
             default:
                 int match = uriMatcher.match(uri);
                 Log.d("different", Integer.toString(match));

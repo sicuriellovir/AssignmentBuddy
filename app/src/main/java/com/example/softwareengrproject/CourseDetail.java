@@ -34,7 +34,7 @@ public class CourseDetail extends AppCompatActivity
 
     String userName;
     String courseName;
-
+    Boolean typeProfessor=false;
     Cursor mCursor;
 
     @Override
@@ -51,7 +51,24 @@ public class CourseDetail extends AppCompatActivity
             courseName = bundle.getString("className");
             userName = bundle.getString("username");
             text.setText(bundle.getString("className"));
+
+            //Query account table to see what type of account
+            Cursor temp;
+            String [] mProjection = new String [] {AcctDB.COLUMN_ACCT_ID, AcctDB.COLUMN_ACCT_TYPE};
+            String mSelection = AcctDB.COLUMN_ACCT_ID + " = ?";
+            String [] mSelectionArgs = new String [] {userName};
+
+            temp = getContentResolver().query(AcctDB.CONTENT_URI_ACCT, mProjection, mSelection, mSelectionArgs, null);
+
+            if( temp != null )
+            {
+                temp.moveToFirst();
+                if( temp.getString(0).equals("Professor") )
+                    typeProfessor = true;
+            }
+
         }
+
 
         // Query grades table with username and coursename and store assignment names, due dates, grade,
         //Cursor for the id column in content provider
@@ -59,7 +76,6 @@ public class CourseDetail extends AppCompatActivity
 
         // Get the course id's
         String[] mProjection = new String[]{ AcctDB.COLUMN_ASSIGNMENT, AcctDB.COLUMN_ASSIGNMENT_DUE_MONTH, AcctDB.COLUMN_ASSIGNMENT_DUE_DAY, AcctDB.COLUMN_GRADE };
-
 
         String mSelection = AcctDB.COLUMN_GRADES_USER_ID + "= ? AND " + AcctDB.COLUMN_COURSE_ID + "= ?";
 
@@ -137,6 +153,9 @@ public class CourseDetail extends AppCompatActivity
         });
 
         Button addAssignment = findViewById(R.id.addAssignmentButton);
+        if( typeProfessor )
+            addAssignment.setVisibility(View.VISIBLE);
+
         addAssignment.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
