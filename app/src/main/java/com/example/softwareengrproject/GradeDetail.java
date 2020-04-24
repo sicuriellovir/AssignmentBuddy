@@ -29,7 +29,7 @@ public class GradeDetail extends AppCompatActivity {
         {
             gradeTitle.setText(bundle.getString("gradeName"));
             userName = bundle.getString("username");
-            courseName = bundle.getString("courseName");
+            courseName = bundle.getString("className");
             assignmentName = bundle.getString("gradeName");
 
             float average = calculate_average(assignmentName,courseName);

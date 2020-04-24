@@ -49,7 +49,9 @@ public class CourseDetail extends AppCompatActivity
         if(bundle != null)
         {
             courseName = bundle.getString("className");
+            Log.d("Course: ", courseName);
             userName = bundle.getString("username");
+            Log.d("User", userName);
             text.setText(bundle.getString("className"));
 
             //Query account table to see what type of account
@@ -63,7 +65,7 @@ public class CourseDetail extends AppCompatActivity
             if( temp != null )
             {
                 temp.moveToFirst();
-                Log.d("Type", temp.getString(0) );
+                Log.d("Type", temp.getString(1) );
                 if( temp.getString(1).equals("Professor") )
                 {
                     typeProfessor = true;
@@ -90,13 +92,13 @@ public class CourseDetail extends AppCompatActivity
             if (mCursor != null)
             {
                 Log.d("OnCreate","Cursor not null");
-                mCursor.moveToFirst();
 
+                Log.d("Length", Integer.toString(mCursor.getCount()));
                 gradeNames = new String[mCursor.getCount()];
                 grades = new String[mCursor.getCount()];
                 gradeDays = new int[mCursor.getCount()];
                 gradeMonth = new int [mCursor.getCount()];
-
+                mCursor.moveToFirst();
                 for (int i = 0; i < gradeNames.length; i++) {
                     gradeNames[i] = mCursor.getString(0);
                     gradeMonth[i] = mCursor.getInt(1);
@@ -119,6 +121,19 @@ public class CourseDetail extends AppCompatActivity
 
                 mCursor.close();
 
+                GradesArrayAdapter gradeAdapter = new GradesArrayAdapter(CourseDetail.this, gradeNames, gradeDates, grades);
+                gradeList.setAdapter(gradeAdapter);
+                gradeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(CourseDetail.this, GradeDetail.class);
+                        intent.putExtra("gradeName", gradeNames[i]);
+                        intent.putExtra("username", userName);
+                        intent.putExtra("className", courseName);
+                        startActivity(intent);
+                    }
+                });
+
             }
 
             else
@@ -131,22 +146,8 @@ public class CourseDetail extends AppCompatActivity
             e.printStackTrace();
         }
 
-        GradesArrayAdapter gradeAdapter = new GradesArrayAdapter(CourseDetail.this, gradeNames, gradeDates, grades);
-        gradeList.setAdapter(gradeAdapter);
-        gradeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(CourseDetail.this, GradeDetail.class);
-                intent.putExtra("gradeName", gradeNames[i]);
-                intent.putExtra("username", userName);
-                intent.putExtra("className", courseName);
-                startActivity(intent);
-            }
-        });
-
 
         Button buttonBack2Course = findViewById(R.id.buttonBackToCourseSelect);
-
         buttonBack2Course.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,6 +177,8 @@ public class CourseDetail extends AppCompatActivity
     public void openAddAssignment()
     {
         Intent intent = new Intent(this, AddAssignment.class);
+        intent.putExtra("username", userName);
+        intent.putExtra("className", courseName);
         startActivity(intent);
     }
 }

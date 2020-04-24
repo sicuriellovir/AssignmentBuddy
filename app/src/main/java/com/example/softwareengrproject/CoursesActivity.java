@@ -123,6 +123,9 @@ public class CoursesActivity extends AppCompatActivity implements  AdapterView.O
     public void returnToAccCourse()
     {
         Intent intent = new Intent(this, AccountScreen.class);
+        Bundle b = new Bundle();
+        b.putString("username",userName);
+        intent.putExtras(b);
         startActivity(intent);
     }
 
