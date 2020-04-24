@@ -58,14 +58,7 @@ public class LoginScreen extends AppCompatActivity {
                 goBack();
             }
         });
-
-        Button next = findViewById((R.id.button10));
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                next();
-            }
-        });
+        
     }
 
     public void submit(){
@@ -82,8 +75,4 @@ public class LoginScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void next(){
-        Intent intent = new Intent(this,SettingsActivityPage.class);
-        startActivity(intent);
-    }
 }
