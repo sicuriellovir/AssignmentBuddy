@@ -108,7 +108,6 @@ public class messengeractivity extends AppCompatActivity {
             //To display messages
 
 
-
         }
 
         editText = (EditText) findViewById(R.id.messengerEditText);
@@ -119,9 +118,10 @@ public class messengeractivity extends AppCompatActivity {
                 // Go back to chat room
                 Intent intent = new Intent(messengeractivity.this, messengerchats.class);
                 Bundle b = new Bundle();
+
                 b.putString("username", userName);
                 intent.putExtras(b);
-
+                startActivity(intent);
             }
         });
 
@@ -147,8 +147,8 @@ public class messengeractivity extends AppCompatActivity {
             Bundle b = new Bundle();
             b.putString("username", userName);
             intent.putExtras(b);
-
             editText.getText().clear();
+            startActivity(intent);
         }
     }
 

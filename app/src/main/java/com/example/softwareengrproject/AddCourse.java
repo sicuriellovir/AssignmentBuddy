@@ -84,6 +84,8 @@ public class AddCourse extends AppCompatActivity {
         }
         mCursor.close();
 
+        // Clear submission box
+        editText.getText().clear();
     }
 
     public void returnToCourses()

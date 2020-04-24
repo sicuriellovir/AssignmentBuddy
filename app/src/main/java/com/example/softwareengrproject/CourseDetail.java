@@ -63,8 +63,12 @@ public class CourseDetail extends AppCompatActivity
             if( temp != null )
             {
                 temp.moveToFirst();
-                if( temp.getString(0).equals("Professor") )
+                Log.d("Type", temp.getString(0) );
+                if( temp.getString(1).equals("Professor") )
+                {
                     typeProfessor = true;
+                }
+                Log.d("BOOLEAN", typeProfessor.toString());
             }
 
         }
@@ -127,8 +131,6 @@ public class CourseDetail extends AppCompatActivity
             e.printStackTrace();
         }
 
-
-
         GradesArrayAdapter gradeAdapter = new GradesArrayAdapter(CourseDetail.this, gradeNames, gradeDates, grades);
         gradeList.setAdapter(gradeAdapter);
         gradeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -137,7 +139,7 @@ public class CourseDetail extends AppCompatActivity
                 Intent intent = new Intent(CourseDetail.this, GradeDetail.class);
                 intent.putExtra("gradeName", gradeNames[i]);
                 intent.putExtra("username", userName);
-                intent.putExtra("courseName", courseName);
+                intent.putExtra("className", courseName);
                 startActivity(intent);
             }
         });

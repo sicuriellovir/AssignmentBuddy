@@ -26,7 +26,7 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etcurrpass"
         android:layout_width="245dp"
         android:layout_height="40dp"
         android:layout_marginStart="145dp"
@@ -49,14 +49,14 @@
         android:scaleType="fitCenter"
         android:src="@drawable/password_icon"
         app:layout_constraintBottom_toBottomOf="@id/textView6"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/etcurrpass"
         app:layout_constraintHorizontal_bias="0.839"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText2"
+        app:layout_constraintTop_toTopOf="@+id/etnewpass"
         app:layout_constraintVertical_bias="0.915" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etnewpass"
         android:layout_width="245dp"
         android:layout_height="40dp"
         android:layout_marginStart="145dp"
@@ -69,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.346"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/etcurrpass" />
 
     <ImageView
         android:id="@+id/new_pass_icon"
@@ -79,14 +79,14 @@
         android:scaleType="fitCenter"
         android:src="@drawable/password_icon"
         app:layout_constraintBottom_toBottomOf="@id/current_pass_icon"
-        app:layout_constraintEnd_toStartOf="@+id/editText2"
+        app:layout_constraintEnd_toStartOf="@+id/etcurrpass"
         app:layout_constraintHorizontal_bias="0.839"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/editText3"
+        app:layout_constraintTop_toTopOf="@+id/etconfirm"
         app:layout_constraintVertical_bias="0.893" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/etconfirm"
         android:layout_width="245dp"
         android:layout_height="40dp"
         android:layout_marginStart="145dp"
@@ -99,7 +99,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.346"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/etnewpass" />
 
     <ImageView
         android:id="@+id/confirm_new_pass_icon"
@@ -109,7 +109,7 @@
         android:scaleType="fitCenter"
         android:src="@drawable/password_icon"
         app:layout_constraintBottom_toBottomOf="@id/new_pass_icon"
-        app:layout_constraintEnd_toStartOf="@+id/editText3"
+        app:layout_constraintEnd_toStartOf="@+id/etconfirm"
         app:layout_constraintHorizontal_bias="0.839"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SubmitButton"
@@ -139,7 +139,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/etconfirm"
         app:layout_constraintVertical_bias="0.247" />
 
 

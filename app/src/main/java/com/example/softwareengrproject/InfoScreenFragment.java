@@ -113,6 +113,7 @@ public class InfoScreenFragment extends AppCompatActivity {
                            uri = getContentResolver().insert(AcctDB.CONTENT_URI_ACCT, cv);
                            Log.d("USERNAME: ",uNameText);
                            Log.d("PASSWORD: ", passwdText);
+                           Log.d("TYPE", acctType);
                            Intent i = new Intent(InfoScreenFragment.this, AccountScreen.class);
                            Bundle b = new Bundle();
                            b.putString("username",uNameText);

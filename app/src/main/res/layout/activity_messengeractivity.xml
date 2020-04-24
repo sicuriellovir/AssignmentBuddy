@@ -10,22 +10,60 @@
 
     <Button
     android:id="@+id/BackButtonMessenger"
-        android:background="@drawable/black_rounded_button"
+        android:background="@drawable/blue_rounded_button"
         android:textColor="@color/white"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginStart="30dp"
     android:layout_marginLeft="44dp"
-    android:layout_marginTop="50dp"
+    android:layout_marginTop="5dp"
     android:text="@string/back" />
 
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:background="@drawable/their_message"
+        android:layout_marginTop="20dp"
+        android:text="TEXT"
+        />
 
-    <ListView
-        android:layout_width="match_parent"
-        android:id="@+id/messages_view"
-        android:layout_weight="2"
-        android:divider="#fff"
-        android:layout_height="wrap_content"
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/my_message"
+        android:text="TEXT" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:background="@drawable/their_message"
+        android:layout_marginTop="20dp"
+        android:text="TEXT"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:background="@drawable/my_message"
+        android:layout_marginTop="20dp"
+        android:text="TEXT"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:background="@drawable/their_message"
+        android:layout_marginTop="20dp"
+        android:text="TEXT"
+        />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:background="@drawable/my_message"
+        android:layout_marginTop="20dp"
+        android:text="TEXT"
         />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

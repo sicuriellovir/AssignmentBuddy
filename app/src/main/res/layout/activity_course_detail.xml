@@ -14,7 +14,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:textColor="@color/white"
-        android:background="@drawable/black_rounded_button"
+        android:background="@drawable/blue_rounded_button"
         android:text="back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +37,7 @@
         android:layout_width="417dp"
         android:layout_height="651dp"
         android:layout_marginTop="32dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -74,6 +74,10 @@ public class messengerchats extends AppCompatActivity implements  AdapterView.On
                     }
                 }
 
+
+                Log.d("Num entries", Integer.toString(entries));
+                if( entries > 0 )
+                {
                 chats = new String[entries];
                 int k = 0;
                 for (int i = 0; i < temp.length; i++)
@@ -90,7 +94,7 @@ public class messengerchats extends AppCompatActivity implements  AdapterView.On
                         k++;
                     }
 
-                }
+                } }
                 mCursor.moveToNext();
             }
 
@@ -99,11 +103,13 @@ public class messengerchats extends AppCompatActivity implements  AdapterView.On
                 Log.d("Chats ", "No chats");
                 Toast.makeText(getApplicationContext(), "No chats to display! Send a message.",Toast.LENGTH_LONG).show();
             }
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, chats);
-            lv.setAdapter(arrayAdapter);
-            lv.setVisibility(View.VISIBLE);
-            lv.setOnItemClickListener(this);
-            mCursor.close();
+            if( chats != null ) {
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, chats);
+                lv.setAdapter(arrayAdapter);
+                lv.setVisibility(View.VISIBLE);
+                lv.setOnItemClickListener(this);
+                mCursor.close();
+            }
 
 
         }catch ( SQLException e){
