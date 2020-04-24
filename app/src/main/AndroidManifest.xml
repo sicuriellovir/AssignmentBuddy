@@ -21,15 +21,6 @@
         <activity android:name=".GradeDetail" />
         <activity android:name=".messengeractivity" />
 
-        <receiver
-            android:name=".ReminderReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.TIME_SET" />
-            </intent-filter>
-        </receiver>
-
         <activity android:name=".LoginScreen" />
         <activity android:name=".CalendarScreen" />
         <activity android:name=".ScreenRegister" />

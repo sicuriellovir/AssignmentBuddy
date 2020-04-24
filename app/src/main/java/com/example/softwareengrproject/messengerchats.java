@@ -43,7 +43,6 @@ public class messengerchats extends AppCompatActivity implements  AdapterView.On
         String[] mProjection = new String[]{ AcctDB.COLUMN_TO, AcctDB.COLUMN_FROM };
 
         String mSelection = AcctDB.COLUMN_TO + "= ? OR " + AcctDB.COLUMN_FROM + " = ?";
-
         String[] mSelectionArgs = new String[]{userName, userName};
 
         mCursor = getContentResolver().query(AcctDB.CONTENT_URI_MESSAGES, mProjection, mSelection, mSelectionArgs, null);
@@ -53,64 +52,78 @@ public class messengerchats extends AppCompatActivity implements  AdapterView.On
                 Log.d("OnCreate", "Cursor not null");
                 mCursor.moveToFirst();
 
-                String[] temp = new String[mCursor.getCount()];
-                int entries = 0;
+                int entries = 0,exists = 0;
+                String [] temp_chats = new String[mCursor.getCount()];
 
-                for (int i = 0; i < temp.length; i++) {
-                    if (userName.equals(mCursor.getString(0)))
-                        temp[i] = mCursor.getString(1);
+                for (int i = 0; i < temp_chats.length; i++) {
+                    Log.d("Entries", mCursor.getString(0) + " " + mCursor.getString(1));
+                    if (userName.equals(mCursor.getString(0))) {
 
-                    else if (userName.equals(mCursor.getString(1)))
-                        temp[i] = mCursor.getString(0);
-
-                    for (int j = 0; j < temp.length; j++) {
-                        for (int k = j + 1; k < temp.length; k++) {
-                            if (temp[j].equals(temp[k])) {
-                                //do nothing
-                            } else {
+                        for(int j = 0; j < entries; j++ )
+                        {
+                            if(temp_chats[j].equals(mCursor.getString(1)))
+                            {
+                                exists = 1;
+                            }
+                            else
+                            {
+                                temp_chats[entries] = mCursor.getString(1);
                                 entries++;
                             }
                         }
+                        if( entries == 0 ) {
+                            temp_chats[entries] = mCursor.getString(1);
+                            entries++;
+                        }
+
+                        exists= 0;
                     }
+
+                    else if (userName.equals(mCursor.getString(1))) {
+
+                        for(int j = 0; j < entries; j++ )
+                        {
+                            if(temp_chats[j].equals(mCursor.getString(0)))
+                            {
+                                Log.d("Duplicate","dup");
+                                exists = 1;
+                            }
+                            else {
+
+                                temp_chats[entries] = mCursor.getString(0);
+                                entries++;
+                            }
+                        }
+
+                        if( entries == 0 ) {
+                            temp_chats[entries] = mCursor.getString(0);
+                            entries++;
+                        }
+
+                        exists= 0;
+                    }
+
+                    mCursor.moveToNext();
+                }
+                chats = new String[entries];
+
+                for(int i =0; i < entries; i++)
+                {
+                    chats[i] = temp_chats[i];
                 }
 
-
-                Log.d("Num entries", Integer.toString(entries));
-                if( entries > 0 )
-                {
-                chats = new String[entries];
-                int k = 0;
-                for (int i = 0; i < temp.length; i++)
-                {
-                    int exists = 0;
-                    for (int j = 0; j < k; j++) {
-                        if (temp[i].equals(chats[j])) {
-                            exists = 1;
-                            break;
-                        }
-                    }
-                    if (exists == 0) {
-                        chats[k] = temp[i];
-                        k++;
-                    }
-
-                } }
-                mCursor.moveToNext();
             }
 
-            else
-            {
-                Log.d("Chats ", "No chats");
-                Toast.makeText(getApplicationContext(), "No chats to display! Send a message.",Toast.LENGTH_LONG).show();
-            }
-            if( chats != null ) {
-                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, chats);
-                lv.setAdapter(arrayAdapter);
-                lv.setVisibility(View.VISIBLE);
-                lv.setOnItemClickListener(this);
-                mCursor.close();
-            }
-
+                if( chats != null ) {
+                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, chats);
+                    lv.setAdapter(arrayAdapter);
+                    lv.setVisibility(View.VISIBLE);
+                    lv.setOnItemClickListener(this);
+                    mCursor.close();
+                }
+//            Log.d("Chats ", "No chats");
+                else
+                    Toast.makeText(getApplicationContext(), "No chats to display! Send a message.",Toast.LENGTH_LONG).show();
 
         }catch ( SQLException e){
             e.printStackTrace();}

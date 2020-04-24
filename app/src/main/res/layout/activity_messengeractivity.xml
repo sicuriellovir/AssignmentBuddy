@@ -6,64 +6,25 @@
     android:orientation="vertical"
     android:clipToPadding="false"
     android:focusableInTouchMode="true"
-    tools:context="com.example.softwareengrproject.messengeractivity">
+    tools:context=".messengeractivity">
 
     <Button
-    android:id="@+id/BackButtonMessenger"
+        android:id="@+id/msgrback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/blue_rounded_button"
+        android:text="back"
         android:textColor="@color/white"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="30dp"
-    android:layout_marginLeft="44dp"
-    android:layout_marginTop="5dp"
-    android:text="@string/back" />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:background="@drawable/their_message"
-        android:layout_marginTop="20dp"
-        android:text="TEXT"
-        />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/my_message"
-        android:text="TEXT" />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:background="@drawable/their_message"
-        android:layout_marginTop="20dp"
-        android:text="TEXT"
-        />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:background="@drawable/my_message"
-        android:layout_marginTop="20dp"
-        android:text="TEXT"
-        />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:background="@drawable/their_message"
-        android:layout_marginTop="20dp"
-        android:text="TEXT"
-        />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:background="@drawable/my_message"
-        android:layout_marginTop="20dp"
-        android:text="TEXT"
+       />
+    <ListView
+        android:layout_width="match_parent"
+        android:id="@+id/messages_view"
+        android:layout_weight="2"
+        android:divider="#fff"
+        android:layout_height="wrap_content"
         />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -73,7 +34,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/messengerEditText"
+            android:id="@+id/message_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"

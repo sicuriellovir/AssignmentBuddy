@@ -12,9 +12,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import java.util.StringTokenizer;
 
@@ -24,15 +26,16 @@ public class messengeractivity extends AppCompatActivity {
     String userName;
     String receiver;
     private Button back;
-
+    ListView messages_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messengeractivity);
 
         Bundle extras = getIntent().getExtras();
-        back = findViewById(R.id.BackButtonMessenger);
+        back = findViewById(R.id.msgrback);
 
+        messages_view = (ListView) findViewById(R.id.messages_view);
         if ( extras != null )
         {
             userName = extras.getString("username");
@@ -63,54 +66,35 @@ public class messengeractivity extends AppCompatActivity {
         else
         {
             Cursor mCursor;
-            String []to_messages;
-            String []from_messages;
+            String []messages;
             // Get messages from receiver
-            String[] mProjection = new String[]{ AcctDB.COLUMN_MESSAGE };
+            String[] mProjection = new String[]{ AcctDB.COLUMN_FROM, AcctDB.COLUMN_MESSAGE };
 
-            String mSelection = AcctDB.COLUMN_TO + "= ? AND " + AcctDB.COLUMN_FROM + " = ?";
+            String mSelection = "( " + AcctDB.COLUMN_TO + "= ? AND " + AcctDB.COLUMN_FROM + " = ?) OR ( " + AcctDB.COLUMN_FROM
+                    + " = ? AND " + AcctDB.COLUMN_TO + " = ?)";
 
-            String[] mSelectionArgs = new String[]{userName, receiver};
-
-            mCursor = getContentResolver().query(AcctDB.CONTENT_URI_MESSAGES, mProjection, mSelection, mSelectionArgs, null);
-
-            if( mCursor != null ) {
-                from_messages = new String[mCursor.getCount()];
-
-                mCursor.moveToFirst();
-                for(int i=0; i < from_messages.length; i++)
-                {
-                    from_messages[i] = mCursor.getString(0);
-                }
-            }
-
-            // To receiver from user
-            mProjection = new String[]{ AcctDB.COLUMN_MESSAGE };
-            mSelection = AcctDB.COLUMN_TO + "= ? AND " + AcctDB.COLUMN_FROM + " = ?";
-            mSelectionArgs = new String[]{receiver, userName};
+            String[] mSelectionArgs = new String[]{userName, receiver, userName, receiver};
 
             mCursor = getContentResolver().query(AcctDB.CONTENT_URI_MESSAGES, mProjection, mSelection, mSelectionArgs, null);
 
             if( mCursor != null ) {
-                to_messages = new String[mCursor.getCount()];
 
+                messages = new String[mCursor.getCount()];
                 mCursor.moveToFirst();
-                for(int i=0; i < to_messages.length; i++)
+                for(int i = 0; i < messages.length;i++)
                 {
-                    to_messages[i] = mCursor.getString(0);
+                    messages[i] = "FROM " + mCursor.getString(0) + ": " + mCursor.getString(1);
+                    mCursor.moveToNext();
                 }
-            }
-            else
-            {
-                // no from messages
-            }
 
-            //To display messages
-
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, messages);
+                messages_view.setAdapter(arrayAdapter);
+                messages_view.setVisibility(View.VISIBLE);
+            }
 
         }
 
-        editText = (EditText) findViewById(R.id.messengerEditText);
+        editText = (EditText) findViewById(R.id.message_et);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

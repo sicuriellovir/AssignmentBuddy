@@ -76,7 +76,6 @@ public class PrivacyNotif extends AppCompatActivity {
                     {
                         // Make sure passwords match
                         // Update entry's password
-
                         ContentValues cv = new ContentValues();
                         cv.put(AcctDB.COLUMN_PASSWD, new_pass_str);
 
